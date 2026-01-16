@@ -1,4 +1,8 @@
-Aim: Want to compute the hedging profile in the BSM model where the position is long a call option.
+This notebook includes code intended to complement the paper "Utility Maximisation with Model-independent Constraints" by A.M. G. Cox and D. Hernandez-Hernandez.
+
+The general aim is to compute hedging profiles for various derivative positions under different market models. We work under the Black-Scholes-Merton (BSM) framework.
+
+For further details, please refer to the original paper.
 
 Set the space up
 
@@ -354,28 +358,15 @@ plt.plot(t[1:],g1)
 print(np.sum(g1)*(t[3]-t[2]))
 plt.title("Hitting density of line");
 
-plt.figure()
-
 ```
 
-    0.524365844521218
-
-
-
-
-
-    <Figure size 800x400 with 0 Axes>
-
+    0.620866970058107
 
 
 
     
-![png](UtilityWMIC_files/UtilityWMIC_25_2.png)
+![png](UtilityWMIC_files/UtilityWMIC_25_1.png)
     
-
-
-
-    <Figure size 800x400 with 0 Axes>
 
 
 Want to compute the law of the terminal wealth, and the utility. We first need to find the optimal choice of $M$ for the initial wealth and the price gap, $\Delta C$, i.e.
@@ -629,7 +620,7 @@ for i in tqdm(range(np.size(lam_vec))):
     M:  0.1474788818359375 H:  -2.71925055750355e-7
 
 
-    100%|██████████| 100/100 [26:24<00:00, 15.85s/it]
+    100%|██████████| 100/100 [35:07<00:00, 21.07s/it]
 
 
 
@@ -730,7 +721,7 @@ plt.plot(z0,1-p_vec)
 
 
 
-    [<matplotlib.lines.Line2D at 0x17ac4fbd0>]
+    [<matplotlib.lines.Line2D at 0x176795210>]
 
 
 
@@ -786,7 +777,7 @@ plt.savefig(plot_folder+"CDF_YT.pdf", bbox_inches='tight')
 
 ```
 
-    100%|██████████| 74/74 [42:34<00:00, 34.52s/it]
+    100%|██████████| 74/74 [42:55<00:00, 34.80s/it]
 
 
 
@@ -1618,7 +1609,7 @@ for K in tqdm(K_values):
 
 ```
 
-    100%|██████████| 20/20 [04:34<00:00, 13.72s/it]
+    100%|██████████| 20/20 [04:45<00:00, 14.28s/it]
 
 
 
